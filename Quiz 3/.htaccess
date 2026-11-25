@@ -1,0 +1,10 @@
+# Apache (XAMPP) recibe las visitas en http://isw613.local/Workshops/Quiz%203/
+# y las pasa a la aplicación Express que corre en el puerto 3000.
+# Requiere mod_rewrite, mod_proxy y mod_proxy_http activos en httpd.conf.
+# Todo pasa por Node, así que Apache nunca muestra archivos como .env o el código.
+
+# Evita que Apache busque index.html/index.php en la carpeta: todo lo maneja Node
+DirectoryIndex disabled
+
+RewriteEngine On
+RewriteRule ^(.*)$ http://127.0.0.1:3000/$1 [P,L]

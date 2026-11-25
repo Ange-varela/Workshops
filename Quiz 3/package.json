@@ -1,0 +1,21 @@
+{
+  "name": "quiz3-matricula",
+  "version": "1.0.0",
+  "description": "Quiz 3 - CRUD de cursos y matrícula de estudiantes (Express MVC)",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "seed": "node database/seed.js"
+  },
+  "keywords": [],
+  "author": "Angelica Varela",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^18.0.10",
+    "ejs": "^7.0.2",
+    "express": "^5.3.0",
+    "mysql2": "^3.24.6"
+  }
+}

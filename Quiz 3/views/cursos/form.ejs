@@ -1,0 +1,51 @@
+<% const esEditar = modo === 'editar'; %>
+<%- include('../partials/header', { titulo: esEditar ? 'Editar curso' : 'Agregar curso' }) %>
+
+<h1 class="mb-4"><%= esEditar ? 'Editar curso' : 'Agregar curso' %></h1>
+
+<%- include('../partials/errores', { errores }) %>
+
+<form action="<%= base %><%= esEditar ? '/cursos/actualizar/' + curso.id : '/cursos/crear' %>" method="POST" class="card card-body shadow-sm">
+
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre del curso</label>
+        <input type="text" id="nombre" name="nombre" class="form-control"
+            value="<%= curso.nombre || '' %>" maxlength="100" required>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="codigo_curso" class="form-label">Código de curso</label>
+            <input type="text" id="codigo_curso" name="codigo_curso" class="form-control"
+                value="<%= curso.codigo_curso || '' %>" maxlength="20" placeholder="Ej: ISW-613" required>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label for="creditos" class="form-label">Cantidad de créditos</label>
+            <input type="number" id="creditos" name="creditos" class="form-control"
+                value="<%= curso.creditos || '' %>" min="1" max="10" required>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="carrera_id" class="form-label">Carrera</label>
+        <select id="carrera_id" name="carrera_id" class="form-select" required>
+            <option value="">Seleccione una carrera</option>
+            <% carreras.forEach(carrera => { %>
+                <option value="<%= carrera.id %>" <%= Number(curso.carrera_id) === carrera.id ? 'selected' : '' %>>
+                    <%= carrera.nombre %>
+                </option>
+            <% }) %>
+        </select>
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary">
+            <%= esEditar ? 'Actualizar curso' : 'Guardar curso' %>
+        </button>
+        <a href="<%= base %>/cursos" class="btn btn-secondary">Volver</a>
+    </div>
+
+</form>
+
+<%- include('../partials/footer') %>

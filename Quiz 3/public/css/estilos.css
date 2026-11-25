@@ -1,0 +1,12 @@
+body {
+    background-color: #f5f6f8;
+}
+
+.fila-curso label {
+    cursor: pointer;
+    display: block;
+}
+
+.fila-curso:has(input:checked) {
+    --bs-table-bg: #d1e7dd;
+}

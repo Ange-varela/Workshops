@@ -1,0 +1,10 @@
+<%- include('partials/header', { titulo }) %>
+
+<div class="alert alert-warning">
+    <h4 class="alert-heading"><%= titulo %></h4>
+    <p class="mb-0"><%= mensaje %></p>
+</div>
+
+<a href="<%= base %>/" class="btn btn-secondary">Volver al inicio</a>
+
+<%- include('partials/footer') %>

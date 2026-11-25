@@ -1,0 +1,52 @@
+<%- include('../partials/header', { titulo: 'Matrícula registrada' }) %>
+
+<div class="alert alert-success">
+    La matrícula se registró correctamente.
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-header bg-success text-white">
+        <h5 class="mb-0">Comprobante de matrícula #<%= matricula.id %></h5>
+    </div>
+
+    <div class="card-body">
+        <h6 class="text-muted">Estudiante</h6>
+        <dl class="row">
+            <dt class="col-sm-3">Cédula</dt>
+            <dd class="col-sm-9"><%= matricula.cedula %></dd>
+
+            <dt class="col-sm-3">Nombre</dt>
+            <dd class="col-sm-9"><%= matricula.nombre_estudiante %></dd>
+
+            <dt class="col-sm-3">Correo</dt>
+            <dd class="col-sm-9"><%= matricula.correo %></dd>
+        </dl>
+
+        <h6 class="text-muted">Curso matriculado</h6>
+        <dl class="row">
+            <dt class="col-sm-3">Curso</dt>
+            <dd class="col-sm-9"><%= matricula.curso %></dd>
+
+            <dt class="col-sm-3">Código</dt>
+            <dd class="col-sm-9"><%= matricula.codigo_curso %></dd>
+
+            <dt class="col-sm-3">Créditos</dt>
+            <dd class="col-sm-9"><%= matricula.creditos %></dd>
+
+            <dt class="col-sm-3">Carrera</dt>
+            <dd class="col-sm-9"><%= matricula.carrera %></dd>
+
+            <dt class="col-sm-3">Fecha</dt>
+            <dd class="col-sm-9 mb-0">
+                <%= new Date(matricula.fecha_matricula).toLocaleString('es-CR', { timeZone: 'America/Costa_Rica' }) %>
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<div class="mt-4">
+    <a href="<%= base %>/" class="btn btn-primary">Nueva matrícula</a>
+    <a href="<%= base %>/matriculas" class="btn btn-secondary">Ver matrículas</a>
+</div>
+
+<%- include('../partials/footer') %>
